@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="bazinga_bkgs">
+        <item>@drawable/bkg_bazinga_1</item>
+        <item>@drawable/bkg_bazinga_2</item>
+        <item>@drawable/bkg_bazinga_3</item>
+    </array>
+    <!--  
+    <integer-array name="bazinga_bkgs">
+        <item>0x7f020057</item>
+        <item>0x7f020058</item>
+        <item>0x7f020059</item>
+    </integer-array>
+	-->
+</resources>
