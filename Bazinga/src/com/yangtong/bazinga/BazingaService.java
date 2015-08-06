@@ -2,10 +2,12 @@ package com.yangtong.bazinga;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 import android.R.integer;
 import android.annotation.SuppressLint;
 import android.app.Service;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -16,7 +18,7 @@ public class BazingaService extends Service {
 	Timer timer = null;
 	Bazinga bazinga;
 	public static final int MSG_SHOW_BAZINGA = 0x001;
-	
+	private WakeReceiver receiver;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -28,17 +30,23 @@ public class BazingaService extends Service {
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// TODO Auto-generated method stub
 		Log.i("yangtong","BazingaService onStartCommand");
-		bazinga = new Bazinga(BazingaService.this);
-		
-		
-		timer = new Timer();
-		timer.schedule(new TimerTask() {
-			
-			@Override
-			public void run() {
-				mHandler.sendEmptyMessage(MSG_SHOW_BAZINGA);
-			}
-		}, 0,8000);
+		IntentFilter filter = new IntentFilter();
+		filter.addAction("android.intent.action.SCREEN_ON");
+		filter.addAction("me.yangtong.bazinga");
+		registerReceiver(receiver, filter);
+//		bazinga = new Bazinga(BazingaService.this);
+//		
+//		
+//		timer = new Timer();
+//		timer.schedule(new TimerTask() {
+//			
+//			@Override
+//			public void run() {
+//				Intent intent = new Intent();
+//				intent.setAction("me.yangtong.bazinga");
+//				sendBroadcast(intent);
+//			}
+//		}, 0,8000);
 		return super.onStartCommand(intent, flags, startId);
 	}
 	
@@ -50,7 +58,7 @@ public class BazingaService extends Service {
 			// TODO Auto-generated method stub
 			switch (msg.what) {
 			case MSG_SHOW_BAZINGA:
-				bazinga.makeBazinga();
+				bazinga.make();
 				break;
 
 			default:

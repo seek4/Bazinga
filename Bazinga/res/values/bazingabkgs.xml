@@ -3,7 +3,6 @@
 
     <array name="bazinga_bkgs">
         <item>@drawable/bkg_bazinga_1</item>
-        <item>@drawable/bkg_bazinga_2</item>
         <item>@drawable/bkg_bazinga_3</item>
     </array>
     <!--  

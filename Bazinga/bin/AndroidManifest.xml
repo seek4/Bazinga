@@ -7,6 +7,7 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -29,9 +30,13 @@
             </intent-filter>
         </service>
         <receiver 
-            android:name=".AlarmReceiver">
+            android:name=".WakeReceiver">
             <intent-filter >
-                <action android:name="com.android.alarmclock.ALARM_ALERT"/>
+                <action android:name="android.intent.action.screen_on" />
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="me.yangtong.bazinga"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
     </application>

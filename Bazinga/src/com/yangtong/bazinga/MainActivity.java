@@ -1,38 +1,98 @@
 package com.yangtong.bazinga;
 
-import android.support.v7.app.ActionBarActivity;
+import android.R.integer;
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity implements OnClickListener{
+	
+	Bazinga bazinga;
+	private Button switchButton;
+	private Button testButton;
+	private Button modeButton;
+	
+	private Intent testIntent;
+	
+	String[] modeTitles;
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);		
 		setContentView(R.layout.activity_main);
 		
-		Intent intent = new Intent(MainActivity.this,BazingaService.class);
-		startService(intent);
+		bazinga = Bazinga.getInstance(MainActivity.this);
+		initData();
+		initView();
+	}
+	
+	private void initData(){
+		modeTitles = getResources().getStringArray(R.array.str_mode);
+	}
+
+	private void initView(){
+		switchButton = (Button)this.findViewById(R.id.button_switch);
+		testButton = (Button)this.findViewById(R.id.button_test);
+		modeButton = (Button)this.findViewById(R.id.button_mode);
+		
+		initSwitchView();
+		initModeView();
+		
+		switchButton.setOnClickListener(this);
+		testButton.setOnClickListener(this);
+		modeButton.setOnClickListener(this);
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+	public void onClick(View v) {
+		// TODO Auto-generated method stub
+		switch (v.getId()) {
+		case R.id.button_switch:
+			if(bazinga.getSwitch()){
+				switchButton.setText("关");
+				bazinga.setSwitch(false);
+			}else {
+				switchButton.setText("开");
+				bazinga.setSwitch(true);
+			}
+			break;
+		case R.id.button_test:
+			bazinga.make();
+//			if(testIntent==null){
+//				testIntent = new Intent();
+//				testIntent.setAction("me.yangtong.bazinga");
+//			}
+//			sendBroadcast(testIntent);
+			break;
+		case R.id.button_mode:
+			if(bazinga.getMode()>=0&&bazinga.getMode()<2){
+				bazinga.setMode(bazinga.getMode()+1);
+			}else {
+				bazinga.setMode(0);
+			}
+			initModeView();
+			break;
+		default:
+			break;
 		}
-		return super.onOptionsItemSelected(item);
 	}
+
+	private void initSwitchView(){
+		switchButton.setText(bazinga.getSwitch()?"开":"关");
+	}
+	
+	private void initModeView(){		
+		if(bazinga.getMode()<modeTitles.length){
+			modeButton.setText(modeTitles[bazinga.getMode()]);
+		}	
+	}
+
+	
 }

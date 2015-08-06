@@ -17,7 +17,8 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040005;
     }
     public static final class array {
-        public static final int bazinga_bkgs=0x7f0d0000;
+        public static final int bazinga_bkgs=0x7f0d0001;
+        public static final int str_mode=0x7f0d0000;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -1081,9 +1082,11 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int bkg_bazinga_1=0x7f020057;
-        public static final int bkg_bazinga_2=0x7f020058;
-        public static final int bkg_bazinga_3=0x7f020059;
-        public static final int ic_launcher=0x7f02005a;
+        public static final int bkg_bazinga_3=0x7f020058;
+        public static final int bkg_honey_1=0x7f020059;
+        public static final int bkg_scary_1=0x7f02005a;
+        public static final int bkg_scary_2=0x7f02005b;
+        public static final int ic_launcher=0x7f02005c;
     }
     public static final class id {
         public static final int action_bar=0x7f0a001c;
@@ -1097,10 +1100,13 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f0a0002;
         public static final int action_menu_presenter=0x7f0a0003;
         public static final int action_mode_close_button=0x7f0a0024;
-        public static final int action_settings=0x7f0a003e;
+        public static final int action_settings=0x7f0a0043;
         public static final int activity_chooser_view_content=0x7f0a0025;
         public static final int always=0x7f0a000f;
         public static final int beginning=0x7f0a0016;
+        public static final int button_mode=0x7f0a003e;
+        public static final int button_switch=0x7f0a003c;
+        public static final int button_test=0x7f0a003d;
         public static final int checkbox=0x7f0a002d;
         public static final int collapseActionView=0x7f0a0010;
         public static final int default_activity_button=0x7f0a0028;
@@ -1116,7 +1122,9 @@ containing a value of this type.
         public static final int icon=0x7f0a002a;
         public static final int ifRoom=0x7f0a0011;
         public static final int image=0x7f0a0027;
-        public static final int layout_bazinga=0x7f0a003c;
+        public static final int image_honey=0x7f0a0041;
+        public static final int image_scary=0x7f0a0042;
+        public static final int layout_bazinga=0x7f0a003f;
         public static final int listMode=0x7f0a0006;
         public static final int list_item=0x7f0a0029;
         public static final int middle=0x7f0a0018;
@@ -1147,7 +1155,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f0a0020;
         public static final int up=0x7f0a0021;
         public static final int useLogo=0x7f0a000e;
-        public static final int view_bazinga=0x7f0a003d;
+        public static final int view_bazinga=0x7f0a0040;
         public static final int withText=0x7f0a0013;
     }
     public static final class integer {
@@ -1202,7 +1210,9 @@ containing a value of this type.
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_main=0x7f030018;
         public static final int bazinga=0x7f030019;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
+        public static final int honey=0x7f03001a;
+        public static final int scary=0x7f03001b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
     }
     public static final class menu {
         public static final int main=0x7f0e0000;
