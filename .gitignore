@@ -1,5 +1,5 @@
-/AppControl/gen/*
-/AppControl/bin/*
-/AppControl/.settings/*
+/Bazinga/gen/*
+/Bazinga/bin/*
+/Bazinga/.settings/*
 .classpath
 .project
